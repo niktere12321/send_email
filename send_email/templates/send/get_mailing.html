@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block tittle %}
+Просмотр рассылки
+{% endblock %}
+{% block content %}
+  <div style="display: flex; justify-content: center;">
+    <h1 class="text-center-main">
+      Подробности рассылки
+    </h1>
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center">
+    <div>
+      <h3>
+        Тема письма
+      </h3>
+      <p>
+        {{mailing.topic}}
+      </p>
+      <h3>
+        Текст письма
+      </h3>
+      <p>
+        {{mailing.text}}
+      </p>
+      <h4>
+        Подписчики которым было отправлена рассылка
+      </h4>
+      <ul>
+        {% for sub in subscriber %}
+        <li>
+          {{sub.email}}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block tittle %}
+Отправка писем
+{% endblock %}
+{% block content %}
+  <div style="display: flex; justify-content: center;">
+    <h1 class="text-center-main">
+      Отправка писем
+    </h1>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        {{ field.errors }}
+        <div style="margin-bottom: 10px">
+          {{ field.label_tag }} {{ field }} {{field.help_text}}
+        </div>
+      {% endfor %}
+      <button type="submit">
+        Создать
+      </button>
+    </form>
+  </div>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script src="{% static 'js/timedropper-jquery.js' %}"></script>
+<script>
+$( document ).ready(function(){
+  $('#id_pending_mailing_time').timeDropper({
+    format: 'HH:mm',
+    minutesSteps: 1,
+    customClass: 'picker2'
+  });
+});
+
+let pending_mailing = document.querySelector('#id_pending_mailing')
+let pending_mailing_date = document.querySelector('select#id_pending_mailing_date_day').parentNode
+let pending_mailing_time = document.querySelector('#id_pending_mailing_time').parentNode
+pending_mailing_date.style['display'] = 'none'
+pending_mailing_time.style['display'] = 'none'
+
+
+let count = 0
+function openPendingMailing () {
+  if (count % 2 == 0) {
+    pending_mailing_date.style['display'] = 'block'
+    pending_mailing_time.style['display'] = 'block'
+  } else {
+    pending_mailing_date.style['display'] = 'none'
+    pending_mailing_time.style['display'] = 'none'
+  }
+  count += 1
+}
+
+pending_mailing.addEventListener('click', openPendingMailing)
+</script>
+{% endblock %}

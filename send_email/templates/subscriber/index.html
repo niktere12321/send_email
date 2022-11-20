@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block tittle %}
+Подписчики
+{% endblock %}
+{% block content %}
+  <div style="display: flex; justify-content: center;">
+    <h1 class="text-center-main">
+        Подписчики
+    </h1>
+  </div>
+  <table style="margin: 0 auto">
+    <thead>
+      <tr>
+        <td>
+          email
+        </td>
+        <td>
+          день рождения
+        </td>
+        <td>
+          имя
+        </td>
+        <td>
+          фамилия
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for subscriber in all_subscriber %}
+      <tr>
+        <td>
+          {{subscriber.email}}
+        </td>
+        <td>
+          {{subscriber.birthday}}
+        </td>
+        <td>
+          {{subscriber.first_name}}
+        </td>
+        <td>
+          {{subscriber.last_name}}
+        </td>
+        <td>
+          <a href="{% url 'subscriber:edit' subscriber.id %}">
+            Редактировать
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

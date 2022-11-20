@@ -1,0 +1,84 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>HTML mailing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        width: 100% !important;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        margin: 0;
+        padding: 0;
+        line-height: 100%;
+      }
+
+      [style*="Open Sans"] {font-family: 'Open Sans', arial, sans-serif !important;}
+
+      img {
+        outline: none;
+        text-decoration: none;
+        border:none;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%!important;
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+      
+      table td {
+        border-collapse: collapse;
+      }
+      
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0;">
+    <div style="font-size:0px;font-color:#ffffff;opacity:0;visibility:hidden;width:0;height:0;display:none;">Тестовое письмо</div>
+    <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+      <tr>
+        <td align="center">
+          <table cellpadding="0" cellspacing="0" width="600px" bgcolor="#ffffff">
+            <tr>
+              <td height="29px" width="1px"></td>
+            </tr>
+            <tr>
+              <td>
+                {% comment %} <img src="http://127.0.0.1:8000/api/check/?id={{id}}&id_sub=1" alt="qqwrqwr" width="1px" height="1px" border="0"/> {% endcomment %}
+                <img src="http://127.0.0.1:8000/api/check/?id=5" alt="qqwrqwr" width="1px" height="1px" border="0"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                {{heading}}
+                <img src="https://kulturveyasam.com/wp-content/uploads/2018/04/sehir-kuslar-07-min.jpg" alt="" width="100px" height="100px" border="0"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <table cellpadding="0" cellspacing="0" width="600px" bgcolor="#ffffff">
+                  <tr>
+                    <td height="30px"></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      {{msg_text}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>

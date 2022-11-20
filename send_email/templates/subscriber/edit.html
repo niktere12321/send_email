@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block tittle %}
+Отправка писем
+{% endblock %}
+{% block content %}
+  <div style="display: flex; justify-content: center;">
+    <h1 class="text-center-main">
+      создание подписчика
+    </h1>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit">
+       отправить
+      </button>
+    </form>
+  </div>
+{% endblock %}
+{% comment %} action="{% url 'subscriber:edit' id %}" {% endcomment %}

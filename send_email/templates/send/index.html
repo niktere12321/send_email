@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block tittle %}
+Рассылки
+{% endblock %}
+{% block content %}
+  <div style="display: flex; justify-content: center;">
+    <h1 class="text-center-main">
+      Все отправленые рассылки
+    </h1>
+  </div>
+  <table style="margin: 0 auto">
+    <thead>
+      <tr>
+        <td>
+          Тема
+        </td>
+        <td>
+          Дата
+        </td>
+        <td>
+          Подробнее
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mailing in all_mailing_email %}
+      <tr>
+        <td>
+          {{mailing.topic}}
+        </td>
+        <td>
+          {{mailing.pub_date}}
+        </td>
+        <td>
+          <a href="{% url 'send:get_mailing' mailing.id %}">
+            Подробнее
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

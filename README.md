@@ -34,7 +34,7 @@ DB_HOST=db
 DB_PORT=5432
 EMAIL_HOST_USER=example@gmail.com
 EMAIL_HOST_PASSWORD=example_password
-SECRET_KEY=example_secret_key
+SECRET_KEY=f($n-01g^9gt^@03$%wjjoea_jvfo8-p21_!3#ahi+v@!5urnq
 TELEGRAM_TOKEN=TELEGRAM_TOKEN
 CHAT_ID=CHAT_ID
 ```

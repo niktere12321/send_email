@@ -1,12 +1,15 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.getenv('SECRET_KEY', default='f($n-01g^9gt^@03$%wjjoea_jvfo8-p21_!3#ahi+v@!5urnq')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['158.160.38.58', '127.0.0.1', '0.0.0.0', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -96,10 +99,9 @@ AUTH_USER_MODEL = 'users.User'
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATIC_DIR = os.path.join(BASE_DIR, 'static\\')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
 
 MEDIA_URL = '/media/'
 
@@ -121,17 +123,17 @@ EMAIL_USE_TLS = True
 
 EMAIL_PORT = 587
 
-EMAIL_HOST_USER = 'nikterekhoff42@gmail.com' #os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 
-EMAIL_HOST_PASSWORD = 'sqczzraqqhpwzojn' #os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+
+CHAT_ID = os.getenv('CHAT_ID')
 
 
-REDIS_HOST = '127.0.0.1'
+REDIS_HOST = 'localhost'
 REDIS_PORT = '6379'
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-CELERY_ENABLE_UTC = False
-# CELERY_ACCEPT_CONTENT = ['aplication/json']
-# CELERY_TASK_SERIALIZER = 'json'
-# CELERY_RESULT_SERIALIZER = 'json'

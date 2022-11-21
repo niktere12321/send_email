@@ -9,8 +9,11 @@ User = get_user_model()
 
 class MailingEmailForm(forms.ModelForm):
     heading = forms.CharField(
-        widget=forms.TextInput(),
+        widget=forms.Textarea(attrs={'cols': 30, 'rows': 1}),
         label='Заголовок письма',
+        help_text='Для использования переменных используйте:</br>\
+            Имя <strong> !name </strong>;</br> Фамилия <strong> !last_name \
+            </strong>;</br> День рождения <strong> !birthday </strong>;',
         required=False
     )
     pending_mailing = forms.BooleanField(
@@ -32,10 +35,12 @@ class MailingEmailForm(forms.ModelForm):
         model = MailingEmail
         fields = ('topic', 'text', 'subscriber')
         labels = {'subscriber': _('Подписчики'),}
-        help_texts = {'text': "Для использования переменных",}
+        help_texts = {'text': 'Для использования переменных используйте:</br>\
+            Имя <strong> !name </strong>;</br> Фамилия <strong> !last_name \
+            </strong>;</br> День рождения <strong> !birthday </strong>;',}
         widgets = {
             'topic': forms.TextInput(attrs={'type': 'text'}),
-            'text': forms.Textarea(attrs={'type': 'text'}),
+            'text': forms.Textarea(attrs={'type': 'text', 'cols': 40, 'rows': 10}),
             'subscriber': forms.CheckboxSelectMultiple(),
         }
 
